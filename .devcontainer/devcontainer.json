@@ -1,0 +1,39 @@
+{
+    "image": "ghcr.io/lmerynda/gen-ai-dev",
+    "features": {
+        "ghcr.io/devcontainers/features/docker-outside-of-docker:1": {},
+        "ghcr.io/mikaello/devcontainer-features/modern-shell-utils:1": {}
+    },
+    "postCreateCommand": "python --version",
+    "remoteUser": "vscode",
+    "mounts": [
+        "source=${localEnv:HOME}${localEnv:USERPROFILE}/.gitconfig,target=/home/vscode/.gitconfig,type=bind,consistency=cached",
+        "source=${localEnv:HOME}${localEnv:USERPROFILE}/.bash_aliases,target=/home/vscode/.bash_aliases,type=bind,consistency=cached"
+    ],
+    "name": "gen-ai-dev",
+    "runArgs": [
+        "--gpus",
+        "all"
+    ],
+    "customizations": {
+        "codespaces": {
+            "mounts": [
+                {
+                    "source": ".",
+                    "target": "/workspaces/projects",
+                    "type": "volume",
+                    "consistency": "cached"
+                }
+            ]
+        },
+        "vscode": {
+            "extensions": [
+                "mhutchie.git-graph",
+                "alefragnani.Bookmarks"
+            ],
+            "settings": {
+                "terminal.integrated.defaultProfile.linux": "zsh"
+            }
+        }
+    }
+}
