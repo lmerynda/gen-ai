@@ -26,5 +26,9 @@ def main():
         writer.writerow(data.values())
 
 
+def isOdd(number):
+    return number % 2 != 0
+
+
 if __name__ == '__main__':
     main()
